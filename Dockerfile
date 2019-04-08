@@ -116,7 +116,7 @@ RUN wget 'https://s3.amazonaws.com/elephantscale-public/downloads/jdk-8u181-linu
 
 ## ----- install spark -------
 RUN \
-  curl -fsL "http://mirrors.sonic.net/apache/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz"  | tar xfz - -C ${INSTALL_DIR} && \
+  curl -fsL "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz"  | tar xfz - -C ${INSTALL_DIR} && \
   cd ${INSTALL_DIR} &&  rm -f spark && ln -s spark-${SPARK_VERSION}-bin-hadoop2.7  spark
 
 
