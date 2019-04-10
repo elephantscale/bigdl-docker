@@ -11,15 +11,15 @@
 ## pick latest or a specific version (to ensure predictability)
 FROM jupyter/scipy-notebook:latest
 
-MAINTAINER Elephant Scale <info@elephantscale.com>
+LABEL maintainer="Elephant Scale <info@elephantscale.com>"
 
 
 ## --- CONFIG for Docker ------
 ARG SCALA_VERSION=2.11.8
 ARG INSTALL_DIR=/opt
-ARG BIGDL_VERSION=0.6.0
-ARG ANALYTICS_ZOO_VERSION=0.3.0-SNAPSHOT
-ARG SPARK_VERSION=2.3.1
+ARG BIGDL_VERSION=0.8.0
+ARG ANALYTICS_ZOO_VERSION=0.5.0-SNAPSHOT
+ARG SPARK_VERSION=2.4.0
 
 ## -- env variables to be used in the container -----
 ENV BIGDL_HOME          ${INSTALL_DIR}/BigDL
