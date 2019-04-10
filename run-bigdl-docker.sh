@@ -20,13 +20,20 @@ fi
 image_id="$1"
 cmd="$2"
 
-# mount the current directory at /work
+# mount the current directory at /home/jovyan/work
 this="${BASH_SOURCE-$0}"
 mydir=$(cd -P -- "$(dirname -- "$this")" && pwd -P)
+work_dir=$(pwd -P)
+
+## ports:
+##  4040-4050 : Spark UI
+##  8888-8890 : Jupyter UI
+##  6006  : Tensorboard UI
 
 docker run -it   \
-    -p 8888:8888 \
+    -p 4040-4050:4040-4050 \
+    -p 8888-8890:8888-8890 \
     -p 6006:6006 \
-    -v"$mydir:/work" \
+    -v"$work_dir:/home/jovyan/work" \
     "$image_id" \
     ${cmd}
