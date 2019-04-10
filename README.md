@@ -1,88 +1,60 @@
-# Easy to use Docker for Intel BigDL and Analytics Zoo
+# BigDL Tutorials
+<img src="images/bigdl-logo-bw.jpg"/>
 
-## How to use 
-```bash 
-# TODO
+This repository contains tutorials and examples of Intel BigDL software.
+
+## Contents
+- [About BigDL](#about)
+- [Tutorials](#autorials)
+- [Running BigDL](#running)
+- [Building Docker container](#building)
+
+
+
+## About BigDL
+BigDL is a Deep Learning framework.  
+TODO add more.  
+You can find more below
+- [BigDL product page](https://software.intel.com/en-us/articles/bigdl-distributed-deep-learning-on-apache-spark)
+- [BigDL @ Github](https://github.com/intel-analytics/BigDL)
+
+## Tutorials
+- [Tutorial 1](tutorials/tutorial1.md)
+- [Tutorial 2](tutorials/tutorial2.md)
+
+## Running
+We have an easy to use Docker container with BigDL and all dependencies and utilities needed.
+
+#### Step 1:
+Install [Docker](https://www.docker.com/) for your platform
+
+#### Step 2:
+Download [this repository](https://github.com/elephantscale/bigdl-tutorials) to your machine.  
+You can either use
 ```
-
-
-## Building the image
-
-```bash
-    $   cd  bigdl-docker
-
-    # to use default 'Dockerfile'
-    # do not forget this DOT (.) at the end
-    #  -t option gives it a name
-    $   docker build  .  -t elephantscale/bigdl
-
-    #   to do a different build file
-    # do not forget this DOT (.) at the end
-    # $   docker build  -f  Dockerfile-v3   .
+    $    git clone https://github.com/elephantscale/bigdl-tutorials
 ```
+or download the repository as a zip file and unzip it.
 
-To force a build provide  `--no-cache ` option
-```bash
-    $   docker build --no-cache   .
+#### Step 3:
+Go into your directory and launch the following command
 ```
-
-To see built images
-
-```bash
-    $   docker images
-    $   docker image inspect  <IMAGE_ID>
+    $    ./run-bigdl-docker.sh   bigdl/bigdl
+    # $    ./run-bigdl-docker.sh   <image id>
 ```
+This will launch the Docker container and run Jupyter notebook
 
-## Running it
+#### Step 4:
+Go to Jupyter notebook url displayed on the console, it will look like
+`http://localhost:8888?token=abcdef12345`
 
-```
-$   docker images
-```
-Will list all images.  
+#### Step 5:
+Navigate to `work` directory and you will see notebook tutorials.
 
-#### Option 1:
-The simplest way to run the docker container is to use `run-bigdl-docker.sh` script at the project root directory.  It will run the image and also mounts a working directory so all the work is saved automatically.
+Note : Please do all the work in the `work` directory.  Any work you do in `work` directory will be saved automatically on your machine.  And the changes will be available even after Docker container has exited.
 
-```bash
-    $    ./run-bigdl-docker.sh   elephantcale/bigdl
-    
-    # or to use any other image
-    $    ./run-bigdl-docker.sh   <image_id>  
-```
-
-#### Option 2:
-Running the Jupyter notebook by default  (~/run_jupyter.sh)
-```
-    $   docker run -it  -p 8888:8888   IMAGE_ID
-```
-
-#### Option 3:
-Shell access
-```
-    $   docker run -it  -p 8888:8888   IMAGE_ID   bash
-```
-
-In Docker container you can run Jupyter as follows
-```
-    $    ./run_jupyter.sh
-```
-
-Go to http://localhost:8888  in browser
+<img src="images/docker1.png"/>
 
 
-## Developers only : Pushing to Dockerhub
-
-```bash
-
-    ## login
-    $  docker login
-    ## enter username, password
-
-    ## tag the image
-    $   docker tag IMAGE_ID  elephantscale/bigdl:latest
-    $   docker images
-
-    ## Pushing
-    $   docker  push  elephantscale/bigdl:latest
-
-```
+## Building
+If you'd like to build your own version of Docker container, please see instructions in [docker/README.md](docker/README.md)
