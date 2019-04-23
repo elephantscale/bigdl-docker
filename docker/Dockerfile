@@ -78,9 +78,8 @@ USER $NB_USER
 #RUN  conda  install -y     jupyter   matplotlib   numpy   pandas   scikit-learn   scipy   seaborn    tensorflow   && conda clean -tipsy
 # RUN pip install  tensorboard
 
-## create a python 3.5 env and install packages
-## py36 seems to be incompatible with some Spark functions
-RUN conda create -y -n py35 python=3.5 \
+## create a python 3.6 env and install packages
+RUN conda create -y -n py36 python=3.6 \
     numpy \
     scipy \
     pandas \
@@ -88,7 +87,6 @@ RUN conda create -y -n py35 python=3.5 \
     matplotlib \
     seaborn \
     jupyter \
-    #nltk \
     opencv \
     pillow \
     tensorflow \
@@ -97,8 +95,8 @@ RUN conda create -y -n py35 python=3.5 \
 # list envs
 RUN conda info -e
 
-## install tensorboard with pip for py35
-RUN /bin/bash -c "source activate py35 && \
+## install tensorboard with pip for py36
+RUN /bin/bash -c "source activate py36 && \
     pip install  tensorboard && \
     source deactivate"
 
@@ -159,8 +157,8 @@ COPY ./run-jupyter-with-zoo.sh  $HOME/
 RUN sudo chmod +x  $HOME/*.sh
 RUN sudo chown $NB_USER  $HOME/*
 
-## source python 3.5 when Bash shell starts
-RUN echo  "\nsource activate py35\n" >> ~/.bashrc
+## source python 3.6 when Bash shell starts
+RUN echo  "\nsource activate py36\n" >> ~/.bashrc
 
 ## finally switch back to jovyan to avoid accidental container runs as root
 USER $NB_USER
