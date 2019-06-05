@@ -18,7 +18,7 @@ LABEL maintainer="Elephant Scale <info@elephantscale.com>"
 ARG SCALA_VERSION=2.11.8
 ARG INSTALL_DIR=/opt
 ARG BIGDL_VERSION=0.8.0
-ARG ANALYTICS_ZOO_VERSION=0.5.0-SNAPSHOT
+ARG ANALYTICS_ZOO_VERSION=0.5.0
 ARG SPARK_VERSION=2.4.0
 
 ## -- env variables to be used in the container -----
@@ -89,7 +89,7 @@ RUN conda create -y -n py36 python=3.6 \
     jupyter \
     opencv \
     pillow \
-    tensorflow \
+    tensorflow=1.10.0 \
     && conda clean -tipsy
 
 # list envs
@@ -118,16 +118,16 @@ RUN \
   cd ${INSTALL_DIR} &&  rm -f spark && ln -s spark-${SPARK_VERSION}-bin-hadoop2.7  spark
 
 
-
 ## ----- install BigDL ----------
 ARG BIGDL_URL=https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-${SPARK_VERSION}-scala-${SCALA_VERSION}-all/${BIGDL_VERSION}/dist-spark-${SPARK_VERSION}-scala-${SCALA_VERSION}-all-${BIGDL_VERSION}-dist.zip
 RUN echo "BIGDL_URL=$BIGDL_URL"
 RUN \
     mkdir -p ${BIGDL_HOME} && \
     cd ${BIGDL_HOME} && \
-    wget --quiet "${BIGDL_URL}"  && \
+    wget "${BIGDL_URL}"  && \
     unzip *.zip && \
     rm -f *.zip
+
 
 # ---- install analytics zoo ----
 COPY ./download-analytics-zoo.sh ${INSTALL_DIR}

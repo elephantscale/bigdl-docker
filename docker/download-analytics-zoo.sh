@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+SPARK_VERSION=2.4.3
 echo $ANALYTICS_ZOO_VERSION
 echo $BIGDL_VERSION
 echo $SPARK_VERSION
