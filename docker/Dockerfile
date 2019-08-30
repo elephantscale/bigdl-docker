@@ -14,14 +14,8 @@ FROM jupyter/scipy-notebook:latest
 LABEL maintainer="Elephant Scale <info@elephantscale.com>"
 
 
-## --- CONFIG for Docker ------
-ARG SCALA_VERSION=2.11.8
-ARG INSTALL_DIR=/opt
-ARG BIGDL_VERSION=0.8.0
-ARG ANALYTICS_ZOO_VERSION=0.5.0
-ARG SPARK_VERSION=2.4.0
-
 ## -- env variables to be used in the container -----
+ARG INSTALL_DIR=/opt
 ENV BIGDL_HOME          ${INSTALL_DIR}/BigDL
 ENV SPARK_HOME          ${INSTALL_DIR}/spark
 ENV ANALYTICS_ZOO_HOME  ${INSTALL_DIR}/analytics-zoo
@@ -105,26 +99,36 @@ USER root
 
 RUN mkdir -p ${INSTALL_DIR}
 ## ---- install Oracle JDK -----
-RUN wget 'https://s3.amazonaws.com/elephantscale-public/downloads/jdk-8u181-linux-x64.tar.gz' && \
+RUN wget -q 'https://s3.amazonaws.com/elephantscale-public/downloads/jdk-8u181-linux-x64.tar.gz' && \
     gunzip jdk-8u181-linux-x64.tar.gz && \
     tar -xf jdk-8u181-linux-x64.tar -C ${INSTALL_DIR} && \
     rm jdk-8u181-linux-x64.tar && \
     ln -s ${INSTALL_DIR}/jdk1.8.0_181 ${JAVA_HOME}
 
 
+## --- BigDL and Analytics Zoo ------
+ARG SCALA_VERSION=2.11.8
+ARG BIGDL_VERSION=0.9.1
+ARG ANALYTICS_ZOO_VERSION=0.8.0
+ARG SPARK_VERSION=2.4.3
+ARG SPARK_VERSION_BIGDL=2.4.0
+
+
 ## ----- install spark -------
+ARG SPARK_DOWNLOAD_URL="https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz"
+RUN echo "Downloading Spark from : ${SPARK_DOWNLOAD_URL}"
 RUN \
-  curl -fsL "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz"  | tar xfz - -C ${INSTALL_DIR} && \
+  curl -fsL  "${SPARK_DOWNLOAD_URL}"  | tar xfz - -C ${INSTALL_DIR} && \
   cd ${INSTALL_DIR} &&  rm -f spark && ln -s spark-${SPARK_VERSION}-bin-hadoop2.7  spark
 
 
 ## ----- install BigDL ----------
-ARG BIGDL_URL=https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-${SPARK_VERSION}-scala-${SCALA_VERSION}-all/${BIGDL_VERSION}/dist-spark-${SPARK_VERSION}-scala-${SCALA_VERSION}-all-${BIGDL_VERSION}-dist.zip
-RUN echo "BIGDL_URL=$BIGDL_URL"
+ARG BIGDL_URL=https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-${SPARK_VERSION_BIGDL}-scala-${SCALA_VERSION}-all/${BIGDL_VERSION}/dist-spark-${SPARK_VERSION_BIGDL}-scala-${SCALA_VERSION}-all-${BIGDL_VERSION}-dist.zip
+RUN echo "Downloading BigDL from : ${BIGDL_URL}"
 RUN \
     mkdir -p ${BIGDL_HOME} && \
     cd ${BIGDL_HOME} && \
-    wget "${BIGDL_URL}"  && \
+    wget -q "${BIGDL_URL}"  && \
     unzip *.zip && \
     rm -f *.zip
 
