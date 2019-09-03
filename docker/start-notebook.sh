@@ -2,7 +2,7 @@
 set -e
 
 # activate py35 environment
-source activate py35
+source activate py36
 conda info -e
 
 /usr/local/bin/start.sh  ~/run-jupyter-with-zoo.sh

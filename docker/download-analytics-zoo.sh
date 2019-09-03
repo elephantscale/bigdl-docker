@@ -15,6 +15,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+## shortcut for now
+
+wget -q https://oss.sonatype.org/content/repositories/snapshots/com/intel/analytics/zoo/analytics-zoo-bigdl_0.9.1-spark_2.4.3/0.6.0-SNAPSHOT/analytics-zoo-bigdl_0.9.1-spark_2.4.3-0.6.0-20190902.184803-4-dist.zip
+unzip *.zip -d $ANALYTICS_ZOO_HOME
+exit 0
+
+# ---- old ---
+
 SPARK_VERSION=2.4.3
 echo $ANALYTICS_ZOO_VERSION
 echo $BIGDL_VERSION
