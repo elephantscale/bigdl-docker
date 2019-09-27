@@ -1,29 +1,29 @@
-# BigDL Tutorials
+# Analytics Zoo Tutorials
 <img src="images/bigdl-logo-bw.jpg"/>
 
-This repository contains tutorials and examples of Intel BigDL software.
+This repository contains tutorials and examples of Intel Analytics Zoo software.
 
 ## Contents
-- [About BigDL](#about)
+- [About Analytics Zoo](#about)
 - [Tutorials](#autorials)
-- [Running BigDL](#running)
+- [Running Analytics Zoo](#running)
 - [Building Docker container](#building)
 
 
 
-## About BigDL
-BigDL is a Deep Learning framework.  
+## About Analytics Zoo
+Analytics Zoo is a Deep Learning framework.  
 TODO add more.  
 You can find more below
-- [BigDL product page](https://software.intel.com/en-us/articles/bigdl-distributed-deep-learning-on-apache-spark)
-- [BigDL @ Github](https://github.com/intel-analytics/BigDL)
+- [Analytics Zoo product page](https://software.intel.com/en-us/blogs/2018/09/10/analytics-zoo-unifying-analytics-ai-for-apache-spark)
+- [Analytics Zoo @ Github](https://github.com/intel-analytics/analytics-zoo)
 
 ## Tutorials
 - [Tutorial 1](tutorials/tutorial1.md)
 - [Tutorial 2](tutorials/tutorial2.md)
 
 ## Running
-We have an easy to use Docker container with BigDL and all dependencies and utilities needed.
+We have an easy to use Docker container with Analytics Zoo and all dependencies and utilities needed.
 
 #### Step 1:
 Install [Docker](https://www.docker.com/) for your platform
@@ -39,7 +39,7 @@ or download the repository as a zip file and unzip it.
 #### Step 3:
 Go into your directory and launch the following command
 ```
-    $    ./run-bigdl-docker.sh   bigdl/bigdl
+    $    ./run-bigdl-docker.sh   elephantscale/bigdl-docker
     # $    ./run-bigdl-docker.sh   <image id>
 ```
 This will launch the Docker container and run Jupyter notebook

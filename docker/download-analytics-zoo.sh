@@ -17,7 +17,7 @@
 #
 ## shortcut for now
 
-wget -q https://oss.sonatype.org/content/repositories/snapshots/com/intel/analytics/zoo/analytics-zoo-bigdl_0.9.1-spark_2.4.3/0.6.0-SNAPSHOT/analytics-zoo-bigdl_0.9.1-spark_2.4.3-0.6.0-20190902.184803-4-dist.zip
+wget -q http://central.maven.org/maven2/com/intel/analytics/zoo/analytics-zoo-bigdl_0.8.0-spark_2.4.3/0.5.1/analytics-zoo-bigdl_0.8.0-spark_2.4.3-0.5.1-dist-all.zip
 unzip *.zip -d $ANALYTICS_ZOO_HOME
 exit 0
 
