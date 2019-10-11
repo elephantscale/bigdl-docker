@@ -34,7 +34,7 @@ export ZOO_CONF=${ANALYTICS_ZOO_HOME}/conf/spark-analytics-zoo.conf
 [ ! -f ${ZOO_JAR} ] && echo "Can not find ${ZOO_JAR}" && exit 1
 [ ! -f ${ZOO_CONF} ] && echo "Can not find ${ZOO_CONF}" && exit 1
 
-# activate py35 environment
+# activate py36 environment
 source activate py36
 conda info -e
 

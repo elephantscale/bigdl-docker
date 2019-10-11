@@ -3,9 +3,6 @@
 ## Usage
 #   BIGDL_HOME=~/apps/BigDL   SPARK_HOME=~/apps/spark    ./run-bigdl.sh
 
-# activate py35 environment
-#source activate py35
-#conda info -e
 
 # run tensorboard
 tensorboard --logdir=${TENSORBOARD_DIR} >> ~/tensorboard.out 2>&1 &
@@ -22,10 +19,8 @@ if [ -z "${SPARK_HOME}" ]; then
     exit 1
 fi
 
-# activate py35 environment
-source activate py35
-# activate py27 environment
-#source activate py27
+# activate py36 environment
+source activate py36
 conda info -e
 
 #setup paths

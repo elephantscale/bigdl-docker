@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# activate py35 environment
+# activate py36 environment
 source activate py36
 conda info -e
 

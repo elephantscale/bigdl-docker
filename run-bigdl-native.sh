@@ -3,7 +3,6 @@
 ## Usage
 #   BIGDL_HOME=~/apps/BigDL   SPARK_HOME=~/apps/spark    ./run-bigdl.sh
 
-
 # Check environment variables
 if [ -z "${BIGDL_HOME}" ]; then
     echo "Please set BIGDL_HOME environment variable"
@@ -15,13 +14,7 @@ if [ -z "${SPARK_HOME}" ]; then
     exit 1
 fi
 
-# activate py35 environment
-#source activate py35
-# activate py27 environment
-#source activate py27
-#conda info -e
-
-source activate py36
+source activate py36 
 
 
 #setup paths
