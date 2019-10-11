@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# activate py35 environment
-#source activate py35
-#conda info -e
-
 # run tensorboard
 tensorboard --logdir=${TENSORBOARD_DIR} >> ~/tensorboard.out  2>&1 &
 
@@ -39,9 +35,7 @@ export ZOO_CONF=${ANALYTICS_ZOO_HOME}/conf/spark-analytics-zoo.conf
 [ ! -f ${ZOO_CONF} ] && echo "Can not find ${ZOO_CONF}" && exit 1
 
 # activate py35 environment
-source activate py35
-# activate py27 environment
-#source activate py27
+source activate py36
 conda info -e
 
 #setup paths
