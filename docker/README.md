@@ -44,7 +44,7 @@ Will list all images.
 The simplest way to run the docker container is to use `run-bigdl-docker.sh` script at the project root directory.  It will run the image and also mounts a working directory so all the work is saved automatically.
 
 ```bash
-    $    ./run-bigdl-docker.sh   elephantcale/bigdl
+    $    ./run-bigdl-docker.sh   elephantscale/bigdl
     
     # or to use any other image
     $    ./run-bigdl-docker.sh   <image_id>  
