@@ -85,15 +85,23 @@ RUN conda create -y -n py36 python=3.6 \
     pillow \
     pytorch \
     torchvision \
+    visdom \
+    requests \
+    jsonpatch \
+    chardet \ 
+    idna \
+    urllib3 \
+    jsonpointer \
     tensorflow=1.10.0 \
     && conda clean -tipsy
 
 # list envs
 RUN conda info -e
 
-## install tensorboard with pip for py36
+## install tensorboard and torchnet with pip for py36
 RUN /bin/bash -c "source activate py36 && \
     pip install  tensorboard && \
+    pip install  torchnet && \
     source deactivate"
 
 ## ----- custom installs ----
