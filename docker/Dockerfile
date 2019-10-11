@@ -83,6 +83,8 @@ RUN conda create -y -n py36 python=3.6 \
     jupyter \
     opencv \
     pillow \
+    pytorch \
+    torchvision \
     tensorflow=1.10.0 \
     && conda clean -tipsy
 
