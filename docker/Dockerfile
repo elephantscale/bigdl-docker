@@ -46,6 +46,7 @@ RUN apt-get install -yq  --no-install-recommends \
     atop \
     curl \
     git \
+    maven \
     less \
     jq \
     nano \
@@ -87,6 +88,7 @@ RUN conda create -y -n py36 python=3.6 \
     torchvision \
     visdom \
     requests \
+    moviepy \
     jsonpatch \
     chardet \ 
     idna \
@@ -119,7 +121,7 @@ RUN wget -q 'https://s3.amazonaws.com/elephantscale-public/downloads/jdk-8u181-l
 ## --- BigDL and Analytics Zoo ------
 ARG SCALA_VERSION=2.11.8
 ARG BIGDL_VERSION=0.9.1
-ARG ANALYTICS_ZOO_VERSION=0.8.0
+ARG ANALYTICS_ZOO_VERSION=0.9.1
 ARG SPARK_VERSION=2.4.3
 ARG SPARK_VERSION_BIGDL=2.4.0
 
