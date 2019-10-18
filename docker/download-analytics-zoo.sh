@@ -17,9 +17,9 @@
 #
 ## shortcut for now
 
-wget -q http://central.maven.org/maven2/com/intel/analytics/zoo/analytics-zoo-bigdl_0.8.0-spark_2.4.3/0.5.1/analytics-zoo-bigdl_0.8.0-spark_2.4.3-0.5.1-dist-all.zip
-unzip *.zip -d $ANALYTICS_ZOO_HOME
-exit 0
+#wget -q http://central.maven.org/maven2/com/intel/analytics/zoo/analytics-zoo-bigdl_0.8.0-spark_2.4.3/0.5.1/analytics-zoo-bigdl_0.8.0-spark_2.4.3-0.5.1-dist-all.zip
+#unzip *.zip -d $ANALYTICS_ZOO_HOME
+#exit 0
 
 # ---- old ---
 
